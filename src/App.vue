@@ -1,95 +1,65 @@
-<script setup>
-
-</script>
-
 <template>
-  <div class="Quote-card">
-    <p class="Quote">“ Nothing is impossible.”</p>
-  </div>
-
-  <div class="Profile-card">
-    <div class="Profile">
-      <img src=".\icons\htl.png" alt="Profile-I" class="Avatar" />
-      <div class="info">
-        <h1 class="name">Sleepwf</h1>
-        <div class="tags">
-          <span class="tag">INFP-T</span>
-          <span class="tag">ACMer</span>
-          <span class="tag">Full Stack Developer</span>
-          <span class="tag">Open Source Enthusiast</span>
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-2xl font-bold text-gray-800 mb-8">我的追番</div>
+      
+      <div v-if="loading" class="flex items-center justify-center py-12">
+        <i class="fas fa-spinner fa-spin text-primary text-xl mr-2"></i>
+        <span class="text-gray-600">加载番剧中...</span>
+      </div>
+      
+      <div v-else>
+        <div class="grid gap-6">
+          <AnimeCard 
+            v-for="anime in animeList" 
+            :anime="anime"
+          />
         </div>
+        
+        <div class="text-center py-8">
+          <p class="text-gray-500">已加载全部番剧 · 共{{ animeList.length }}部</p>
+        </div>
+        
       </div>
     </div>
   </div>
-
 </template>
 
-<style scoped>
+<script>
+import AnimeCard from '@/components/AnimeCard.vue'
+import { ref, onMounted } from 'vue'
 
-  .Quote-card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 10px;
-    font-family: Arial, sans-serif;
-    color: #555;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .Quote {
-    font-style: italic;
-  }
-
-  .Profile-card {
-    width: 400px;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    padding: 15px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .Profile {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-
-  .Avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-right: 15px;
-  }
-
-  .info {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .name {
-    margin: 0;
-    font-size: 1.4em;
-    font-weight: bold;
-  }
-
-  .tags {
+export default {
+  name: 'App',
+  components: {
+    AnimeCard
+  },
+  setup() {
+    const animeList = ref([])
+    const loading = ref(true)
     
+    const loadAnimeData = async () => {
+      try {
+        loading.value = true
+        const response = await fetch('/data/animeData.json')
+        const data = await response.json()
+        animeList.value = data
+      } catch (error) {
+        console.error('加载番剧数据失败:', error)
+        animeList.value = []
+      } finally {
+        loading.value = false
+      }
+    }
+    
+    onMounted(() => {
+      loadAnimeData()
+    }) 
+    
+    return {
+      animeList,
+      loading,
+    }
   }
-
-  .tag {
-    display: inline-block;
-    background: #f3f4f6;
-    color: #555;
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 0.8em;
-    margin-right: 5px;
-    margin-top: 5px;
-  }
-
-</style>
+}
+</script>

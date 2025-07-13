@@ -5,7 +5,7 @@
     "year":2024,
     "total_episodes": 25,
     "progress_text": "已看完",
-    "cover": "public/Photo/蓝箱.webp", 
+    "cover": "Photo/蓝箱.webp", 
     "status": "已完结"
   },
   {
@@ -14,7 +14,7 @@
     "year":2022,
     "total_episodes": 12,
     "progress_text": "已看完",
-    "cover": "public/Photo/古见同学有交流障碍症第二季.jpg",
+    "cover": "Photo/古见同学有交流障碍症第二季.jpg",
     "status": "已完结"
   },
   {
@@ -23,7 +23,7 @@
     "year":2021,
     "total_episodes": 12,
     "progress_text": "已看完",
-    "cover": "public/Photo/古见同学有交流障碍症.jpg",
+    "cover": "Photo/古见同学有交流障碍症.jpg",
     "status": "已完结"
   },
   {
@@ -32,7 +32,7 @@
     "year":2021,
     "total_episodes": 12,
     "progress_text": "已看完",
-    "cover": "public/Photo/回复术士的重启人生.png",
+    "cover": "Photo/回复术士的重启人生.png",
     "status": "已完结"
   },
   {
@@ -41,7 +41,7 @@
     "year":2024,
     "total_episodes": 24,
     "progress_text": "已看完",
-    "cover": "public/Photo/无职转生2.jpg",
+    "cover": "Photo/无职转生2.jpg",
     "status": "已完结"
   },
   {
@@ -50,7 +50,7 @@
     "year":2024,
     "total_episodes": 12,
     "progress_text": "已看完",
-    "cover": "public/Photo/不时用俄语小声说真心话的邻桌艾莉同学.jpg",
+    "cover": "Photo/不时用俄语小声说真心话的邻桌艾莉同学.jpg",
     "status": "已完结"
   },
   {
@@ -59,7 +59,7 @@
     "year":2016,
     "total_episodes": 13,
     "progress_text": "已看完",
-    "cover": "public/Photo/ReLIFE.webp",
+    "cover": "Photo/ReLIFE.webp",
     "status": "已完结"
   }
 ]
